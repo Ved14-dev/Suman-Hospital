@@ -2,6 +2,9 @@
 
 A modern, high-polish healthcare web platform and clinical ERP tailored for **Suman Multispecialty Hospital** (pre-launch upcoming hospital).
 
+Deployment instructions for Render, Vercel, and MongoDB Atlas are in
+[docs/DEPLOY.md](docs/DEPLOY.md).
+
 ---
 
 ## 🏥 Hospital Overview & Department Structure
@@ -17,7 +20,7 @@ Suman Multispecialty Hospital is configured with **4 core departments** and an i
 
 ## 🔐 Role-Based Access Control (RBAC) & Demo Credentials
 
-The ERP supports 6 distinct roles. Run `npm run seed` from the `server` directory to initialize the database with demo accounts:
+The ERP supports 6 distinct roles. Run `npm run seed` from the `server` directory to initialize the database with demo accounts. Set `SEED_PASSWORD` to choose the password; local development falls back to `password123`, but hosted demos must use a private value.
 
 | Role | Email | Password | Primary Permissions |
 | :--- | :--- | :--- | :--- |

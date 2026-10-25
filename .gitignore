@@ -5,6 +5,7 @@
 server/backups/
 dist/
 build/
+client/dist/
 *.log
 .DS_Store
 .vscode/

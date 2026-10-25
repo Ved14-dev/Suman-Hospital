@@ -11,9 +11,9 @@ import {
   UserCheck,
   XCircle,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import {
   approveBedBooking,
   cancelBedBooking,
@@ -24,7 +24,7 @@ import {
   fetchWards,
   quickSearchPatients,
   rejectBedBooking,
-} from '../api/api';
+} from '../api/api.js';
 import { useNavigate } from 'react-router-dom';
 
 const BedRequestsQueue = () => {

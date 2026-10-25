@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserPlus, Eye, UserX, Users, Phone, ShieldCheck } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import DataTable from '../components/DataTable';
-import StatusBadge from '../components/StatusBadge';
-import ConfirmDialog from '../components/ConfirmDialog';
-import { fetchPatients, deactivatePatient } from '../api/api';
-import { useAuth } from '../context/AuthContext';
-import { hasPermission } from '../utils/permissions';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import DataTable from '../components/DataTable.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import ConfirmDialog from '../components/ConfirmDialog.jsx';
+import { fetchPatients, deactivatePatient } from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
+import { hasPermission } from '../utils/permissions.js';
 
 const Patients = () => {
   const { token, user } = useAuth();

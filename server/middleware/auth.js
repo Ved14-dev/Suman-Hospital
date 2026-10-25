@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
-const getSecret = () => process.env.JWT_SECRET || 'suman-hospital-demo-secret';
+const getSecret = () => process.env.JWT_SECRET;
 
 export const signToken = (user) => jwt.sign({ id: user._id.toString(), role: user.role }, getSecret(), { expiresIn: '7d' });
 

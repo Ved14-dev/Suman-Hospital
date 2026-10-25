@@ -18,9 +18,9 @@ import {
   User,
   XCircle,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import {
   acknowledgeNursingRecord,
   addRoundNote,
@@ -29,7 +29,7 @@ import {
   fetchBeds,
   fetchDoctorNeedsReview,
   transferBed,
-} from '../api/api';
+} from '../api/api.js';
 
 const DoctorInpatientsPage = () => {
   const { token, user } = useAuth();

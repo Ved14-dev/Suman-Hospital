@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Toast from './components/Toast';
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
+import Toast from './components/Toast.jsx';
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Departments from './pages/Departments';
-import Doctors from './pages/Doctors';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import HealthInsights from './pages/HealthInsights';
-import Auth from './pages/Auth';
-import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
+import Departments from './pages/Departments.jsx';
+import Doctors from './pages/Doctors.jsx';
+import Services from './pages/Services.jsx';
+import Contact from './pages/Contact.jsx';
+import HealthInsights from './pages/HealthInsights.jsx';
+import Auth from './pages/Auth.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 import {
   PatientDashboard,
   DoctorDashboard,
   AdminDashboard,
   StaffDashboard,
-} from './pages/Dashboard';
-import Patients from './pages/Patients';
-import PatientRegistration from './pages/PatientRegistration';
-import PatientProfile from './pages/PatientProfile';
-import LiveQueue from './pages/LiveQueue';
-import WalkInRegistration from './pages/WalkInRegistration';
-import Appointments from './pages/Appointments';
-import NoShowReport from './pages/NoShowReport';
-import EMR from './pages/EMR';
-import Pharmacy from './pages/Pharmacy';
-import IPD from './pages/IPD';
-import BedBoard from './pages/BedBoard';
-import BedRequestsQueue from './pages/BedRequestsQueue';
-import AdmissionsPage from './pages/AdmissionsPage';
-import NursePatientsPage from './pages/NursePatientsPage';
-import DoctorInpatientsPage from './pages/DoctorInpatientsPage';
-import PatientBookBedPage from './pages/PatientBookBedPage';
-import WardsSettingsPage from './pages/WardsSettingsPage';
-import PrintableDischargeSummary from './pages/PrintableDischargeSummary';
-import { isModuleEnabled } from './config/modules';
+} from './pages/Dashboard.jsx';
+import Patients from './pages/Patients.jsx';
+import PatientRegistration from './pages/PatientRegistration.jsx';
+import PatientProfile from './pages/PatientProfile.jsx';
+import LiveQueue from './pages/LiveQueue.jsx';
+import WalkInRegistration from './pages/WalkInRegistration.jsx';
+import Appointments from './pages/Appointments.jsx';
+import NoShowReport from './pages/NoShowReport.jsx';
+import EMR from './pages/EMR.jsx';
+import Pharmacy from './pages/Pharmacy.jsx';
+import IPD from './pages/IPD.jsx';
+import BedBoard from './pages/BedBoard.jsx';
+import BedRequestsQueue from './pages/BedRequestsQueue.jsx';
+import AdmissionsPage from './pages/AdmissionsPage.jsx';
+import NursePatientsPage from './pages/NursePatientsPage.jsx';
+import DoctorInpatientsPage from './pages/DoctorInpatientsPage.jsx';
+import PatientBookBedPage from './pages/PatientBookBedPage.jsx';
+import WardsSettingsPage from './pages/WardsSettingsPage.jsx';
+import PrintableDischargeSummary from './pages/PrintableDischargeSummary.jsx';
+import { isModuleEnabled } from './config/modules.js';
 
-import { useAuth } from './context/AuthContext';
+import { useAuth } from './context/AuthContext.jsx';
 
 // Scroll to top on route change
 const ScrollToTop = () => {

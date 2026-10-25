@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Filter, Stethoscope, UserX } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
-import DoctorCard from '../components/DoctorCard';
-import SkeletonLoader from '../components/SkeletonLoader';
-import { fetchDoctors, fetchDepartments } from '../api/api';
+import SectionHeading from '../components/SectionHeading.jsx';
+import DoctorCard from '../components/DoctorCard.jsx';
+import SkeletonLoader from '../components/SkeletonLoader.jsx';
+import { fetchDoctors, fetchDepartments } from '../api/api.js';
 
 const Doctors = ({ onOpenBookModal, onSelectDoctorForModal }) => {
   const [doctors, setDoctors] = useState([]);

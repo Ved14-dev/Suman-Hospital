@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { UserPlus, ArrowLeft, Printer, CheckCircle2, Search, UserCheck } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import PrintSlip from '../components/PrintSlip';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import PrintSlip from '../components/PrintSlip.jsx';
 import {
   fetchDepartments,
   fetchDoctors,
   quickSearchPatients,
   createWalkInAppointment,
   fetchPatientById,
-} from '../api/api';
-import { useAuth } from '../context/AuthContext';
+} from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const WalkInRegistration = () => {
   const { token } = useAuth();

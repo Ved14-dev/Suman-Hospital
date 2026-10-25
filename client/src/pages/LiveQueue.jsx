@@ -12,11 +12,11 @@ import {
   Search,
   XCircle,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import StatCard from '../components/StatCard';
-import Modal from '../components/Modal';
-import PrintSlip from '../components/PrintSlip';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import StatCard from '../components/StatCard.jsx';
+import Modal from '../components/Modal.jsx';
+import PrintSlip from '../components/PrintSlip.jsx';
 import {
   fetchLiveQueue,
   fetchDoctors,
@@ -25,8 +25,8 @@ import {
   completeConsultation,
   markNoShowAppointment,
   cancelAppointment,
-} from '../api/api';
-import { useAuth } from '../context/AuthContext';
+} from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const LiveQueue = () => {
   const { token, user } = useAuth();

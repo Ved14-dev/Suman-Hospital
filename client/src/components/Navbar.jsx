@@ -12,7 +12,7 @@ import {
   LayoutDashboard,
   ShieldAlert,
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext.jsx';
 
 // Clean SVG WhatsApp icon for authentic branding
 const WhatsAppIcon = ({ className = 'w-4 h-4' }) => (

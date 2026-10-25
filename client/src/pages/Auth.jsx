@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HeartPulse, LockKeyhole, Mail, UserRound, Phone, KeyRound } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const demoCredentials = [
   { role: 'Admin', email: 'admin@sumanhospital.com' },
@@ -23,7 +23,7 @@ const Auth = ({ mode = 'login' }) => {
   const [busy, setBusy] = useState(false);
 
   const fillDemo = (email) => {
-    setForm({ name: '', email, password: 'password123', phone: '' });
+    setForm({ name: '', email, password: '', phone: '' });
     setError('');
   };
 
@@ -164,7 +164,7 @@ const Auth = ({ mode = 'login' }) => {
           <div className="mt-6 pt-5 border-t border-slate-100 space-y-2">
             <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-heading flex items-center gap-1">
               <KeyRound className="w-3 h-3" />
-              <span>Demo Quick-Fill Accounts (password123):</span>
+              <span>Demo Quick-Fill Accounts (enter password below):</span>
             </p>
             <div className="flex flex-wrap gap-1.5">
               {demoCredentials.map((c) => (

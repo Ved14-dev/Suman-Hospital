@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import SectionHeading from '../components/SectionHeading';
-import DepartmentCard from '../components/DepartmentCard';
-import DoctorCard from '../components/DoctorCard';
-import SkeletonLoader from '../components/SkeletonLoader';
-import { fetchDepartments, fetchDepartmentBySlug } from '../api/api';
+import SectionHeading from '../components/SectionHeading.jsx';
+import DepartmentCard from '../components/DepartmentCard.jsx';
+import DoctorCard from '../components/DoctorCard.jsx';
+import SkeletonLoader from '../components/SkeletonLoader.jsx';
+import { fetchDepartments, fetchDepartmentBySlug } from '../api/api.js';
 import { Stethoscope, CheckCircle2, Phone, UserCheck } from 'lucide-react';
 
 const Departments = ({ onOpenBookModal, onSelectDoctorForModal }) => {

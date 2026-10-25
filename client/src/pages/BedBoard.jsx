@@ -18,9 +18,9 @@ import {
   X,
   Sparkles,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import {
   fetchBeds,
   fetchBedOccupancy,
@@ -30,8 +30,8 @@ import {
   transferBed,
   dischargePatient,
   addRoundNote,
-} from '../api/api';
-import PatientBookBedPage from './PatientBookBedPage';
+} from '../api/api.js';
+import PatientBookBedPage from './PatientBookBedPage.jsx';
 
 const STATUS_COLORS = {
   Available: {

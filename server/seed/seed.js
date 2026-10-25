@@ -23,6 +23,22 @@ import { getTodayIST } from '../utils/dateUtils.js';
 dotenv.config();
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/hospital_db';
+const confirmRemote = process.argv.includes('--confirm-remote');
+const isLocalMongo = /^mongodb(\+srv)?:\/\/(127\.0\.0\.1|localhost)(?::\d+)?\//i.test(MONGODB_URI);
+
+if (process.env.NODE_ENV === 'production') {
+  console.error('[Seed] Refusing to run with NODE_ENV=production.');
+  process.exit(1);
+}
+if (!isLocalMongo && !confirmRemote) {
+  console.error(`[Seed] Refusing remote target ${new URL(MONGODB_URI).host}. Re-run with --confirm-remote.`);
+  process.exit(1);
+}
+const seedPassword = process.env.SEED_PASSWORD || 'password123';
+if (seedPassword === 'password123' && (!isLocalMongo || confirmRemote)) {
+  console.error('[Seed] SEED_PASSWORD must be changed for a remote seed.');
+  process.exit(1);
+}
 
 const seedData = async () => {
   try {
@@ -116,7 +132,7 @@ const seedData = async () => {
     console.log(`[Seed]: Created ${insertedDepts.length} departments.`);
 
     // 2. Demo Users & Staff Credentials
-    const passwordHash = await bcrypt.hash('password123', 12);
+    const passwordHash = await bcrypt.hash(seedPassword, 12);
 
     const usersData = [
       {
@@ -1038,12 +1054,7 @@ const seedData = async () => {
     console.log(' SEEDING COMPLETE SUCCESSFULLY! Database: hospital_db ');
     console.log(' 4 Departments: General Checkup, Pediatrics, Orthopedics, Gynaecology & Panchakarma');
     console.log(' Demo Accounts:');
-    console.log('   Admin:        admin@sumanhospital.com / password123');
-    console.log('   Receptionist: receptionist@sumanhospital.com / password123');
-    console.log('   Doctor (HOD): dr.gauri.warhekar@sumanhospital.com / password123');
-    console.log('   Pharmacist:   pharmacist@sumanhospital.com / password123');
-    console.log('   Nurse:        nurse@sumanhospital.com / password123');
-    console.log('   Patient:      patient@sumanhospital.com / password123');
+    console.log('   Demo accounts were seeded with SEED_PASSWORD.');
     console.log('======================================================\n');
     process.exit(0);
   } catch (error) {

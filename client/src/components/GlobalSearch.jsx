@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, User, Phone, Hash, Loader2 } from 'lucide-react';
-import { quickSearchPatients } from '../api/api';
-import { useAuth } from '../context/AuthContext';
+import { quickSearchPatients } from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const GlobalSearch = () => {
   const { token, user } = useAuth();

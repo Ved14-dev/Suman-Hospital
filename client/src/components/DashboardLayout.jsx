@@ -21,10 +21,10 @@ import {
   ChevronRight,
   Settings,
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
-import GlobalSearch from './GlobalSearch';
-import { hasPermission } from '../utils/permissions';
-import { isModuleEnabled } from '../config/modules';
+import { useAuth } from '../context/AuthContext.jsx';
+import GlobalSearch from './GlobalSearch.jsx';
+import { hasPermission } from '../utils/permissions.js';
+import { isModuleEnabled } from '../config/modules.js';
 
 const DashboardLayout = ({ children, breadcrumbs = [] }) => {
   const { user, logout } = useAuth();

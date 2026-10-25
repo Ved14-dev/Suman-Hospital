@@ -11,11 +11,11 @@ import {
   ArrowRight,
   Filter,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import DataTable from '../components/DataTable';
-import StatusBadge from '../components/StatusBadge';
-import Modal from '../components/Modal';
-import PrintSlip from '../components/PrintSlip';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import DataTable from '../components/DataTable.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import Modal from '../components/Modal.jsx';
+import PrintSlip from '../components/PrintSlip.jsx';
 import {
   fetchAppointments,
   fetchMyAppointments,
@@ -26,8 +26,8 @@ import {
   fetchAvailability,
   fetchDoctors,
   fetchDepartments,
-} from '../api/api';
-import { useAuth } from '../context/AuthContext';
+} from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const Appointments = () => {
   const { token, user } = useAuth();

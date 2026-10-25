@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, HeartPulse, Printer, RefreshCw, XCircle } from 'lucide-react';
-import { fetchAdmission } from '../api/api';
-import { useAuth } from '../context/AuthContext';
+import { fetchAdmission } from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const PrintableDischargeSummary = () => {
   const { id } = useParams();

@@ -12,10 +12,10 @@ import {
   Printer,
   HeartPulse,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import StatCard from '../components/StatCard';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import StatCard from '../components/StatCard.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import {
   fetchAdminStats,
   fetchDepartments,
@@ -24,7 +24,7 @@ import {
   fetchAvailability,
   createAppointment,
   fetchLiveQueue,
-} from '../api/api';
+} from '../api/api.js';
 
 const titleFor = (role) => {
   switch (role) {

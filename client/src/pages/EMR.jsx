@@ -5,8 +5,8 @@ import {
   AlertTriangle, CheckCircle, Clock, Lock, Edit3, Syringe, HeartPulse,
   Baby, Leaf, Save, Send, X, RotateCcw
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import {
   getPatientVisits, createVisit, updateVisit, finalizeVisit, addAmendment,
   createPrescription, getVisitPrescriptions,
@@ -14,7 +14,7 @@ import {
   searchMedicinesForRx,
   createCertificate,
   quickSearchPatients,
-} from '../api/api';
+} from '../api/api.js';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const fmt = (d) => d ? new Date(d).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—';

@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import connectDB from './config/db.js';
 
 import departmentRoutes from './routes/departmentRoutes.js';
@@ -19,14 +20,33 @@ import staffRoutes from './routes/staffRoutes.js';
 
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
+const DEFAULT_JWT_SECRETS = new Set([
+  'replace-with-a-secure-random-secret-key-at-least-32-chars',
+  'change-me',
+  'secret',
+]);
+
+const validateProductionConfig = () => {
+  const secret = process.env.JWT_SECRET;
+  if (!secret || secret.length < 32 || DEFAULT_JWT_SECRETS.has(secret)) {
+    throw new Error('JWT_SECRET must be set to a unique value of at least 32 characters');
+  }
+  if (!process.env.MONGODB_URI) {
+    throw new Error('MONGODB_URI must be set');
+  }
+  if (process.env.NODE_ENV === 'production' && !process.env.CLIENT_ORIGINS) {
+    throw new Error('CLIENT_ORIGINS must be set in production');
+  }
+};
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Secure CORS configuration: Restrict to authorized client origins (no wildcard open CORS)
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim())
+const allowedOrigins = process.env.CLIENT_ORIGINS
+  ? process.env.CLIENT_ORIGINS.split(',').map((origin) => origin.trim()).filter(Boolean)
+  : process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim()).filter(Boolean)
   : [
       'http://localhost:5173',
       'http://localhost:3000',
@@ -55,8 +75,10 @@ app.use(express.json());
 
 // API Health Check
 app.get('/api/health', (req, res) => {
-  res.json({
-    status: 'ok',
+  const dbState = { 0: 'disconnected', 1: 'connected', 2: 'connecting', 3: 'disconnecting' }[mongoose.connection.readyState] || 'unknown';
+  res.status(dbState === 'connected' ? 200 : 503).json({
+    status: dbState === 'connected' ? 'ok' : 'degraded',
+    database: dbState,
     hospital: 'Suman  Hospital API',
     timestamp: new Date().toISOString(),
   });
@@ -101,6 +123,15 @@ app.use('*', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`[Server Running]: http://localhost:${PORT}`);
+const start = async () => {
+  validateProductionConfig();
+  await connectDB();
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`[Server Running]: port ${PORT}`);
+  });
+};
+
+start().catch((error) => {
+  console.error(`[Startup Error]: ${error.message}`);
+  process.exit(1);
 });

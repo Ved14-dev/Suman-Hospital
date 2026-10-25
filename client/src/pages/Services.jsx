@@ -16,9 +16,9 @@ import {
   PhoneCall,
   ArrowRight,
 } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
-import SkeletonLoader from '../components/SkeletonLoader';
-import { fetchServices } from '../api/api';
+import SectionHeading from '../components/SectionHeading.jsx';
+import SkeletonLoader from '../components/SkeletonLoader.jsx';
+import { fetchServices } from '../api/api.js';
 
 const iconMap = {
   Ambulance,

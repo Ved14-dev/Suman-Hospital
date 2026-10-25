@@ -1,13 +1,32 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
+  timeout: 60000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const method = error.config?.method?.toLowerCase();
+    const retryable = method === 'get' && !error.config?._coldStartRetry
+      && (!error.response || error.code === 'ECONNABORTED' || error.code === 'ETIMEDOUT');
+    if (retryable) {
+      error.config._coldStartRetry = true;
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      return api.request(error.config);
+    }
+    if (!error.response && (error.code === 'ECONNABORTED' || error.code === 'ETIMEDOUT' || error.message === 'Network Error')) {
+      error.message = 'Server is waking up, please wait a moment.';
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const authConfig = (token) => ({
   headers: { Authorization: `Bearer ${token}` },

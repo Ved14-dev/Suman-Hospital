@@ -14,9 +14,9 @@ import {
   UserCheck,
   XCircle,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 import {
   admitPatient,
   dischargePatient,
@@ -26,7 +26,7 @@ import {
   fetchDoctors,
   quickSearchPatients,
   transferBed,
-} from '../api/api';
+} from '../api/api.js';
 
 const AdmissionsPage = () => {
   const { token, user } = useAuth();

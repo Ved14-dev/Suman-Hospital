@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserPlus, AlertCircle, ArrowLeft, CheckCircle2, Search } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import { createPatient } from '../api/api';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import { createPatient } from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const PatientRegistration = () => {
   const { token } = useAuth();

@@ -22,11 +22,11 @@ import {
   Baby,
   Bone,
 } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
-import DepartmentCard from '../components/DepartmentCard';
-import DoctorCard from '../components/DoctorCard';
-import SkeletonLoader from '../components/SkeletonLoader';
-import { fetchDepartments, fetchDoctors, fetchServices } from '../api/api';
+import SectionHeading from '../components/SectionHeading.jsx';
+import DepartmentCard from '../components/DepartmentCard.jsx';
+import DoctorCard from '../components/DoctorCard.jsx';
+import SkeletonLoader from '../components/SkeletonLoader.jsx';
+import { fetchDepartments, fetchDoctors, fetchServices } from '../api/api.js';
 
 const Home = ({ onOpenBookModal, onSelectDoctorForModal }) => {
   const [departments, setDepartments] = useState([]);

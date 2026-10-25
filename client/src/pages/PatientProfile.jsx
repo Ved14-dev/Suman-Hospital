@@ -18,12 +18,12 @@ import {
   Stethoscope,
   PlusCircle,
 } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import ConfirmDialog from '../components/ConfirmDialog';
-import Modal from '../components/Modal';
-import { fetchPatientById, updatePatient, deactivatePatient } from '../api/api';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import ConfirmDialog from '../components/ConfirmDialog.jsx';
+import Modal from '../components/Modal.jsx';
+import { fetchPatientById, updatePatient, deactivatePatient } from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const PatientProfile = () => {
   const { id } = useParams();

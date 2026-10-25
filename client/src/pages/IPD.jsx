@@ -1,3 +1,3 @@
-import BedBoard from './BedBoard';
+import BedBoard from './BedBoard.jsx';
 
 export default BedBoard;

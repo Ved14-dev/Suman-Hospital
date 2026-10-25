@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { AlertTriangle, Package, RefreshCw, Search } from 'lucide-react';
-import DashboardLayout from '../components/DashboardLayout';
-import StatusBadge from '../components/StatusBadge';
-import { fetchMedicines, fetchStockAlerts, fetchStockLevels } from '../api/api';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import { fetchMedicines, fetchStockAlerts, fetchStockLevels } from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const Pharmacy = () => {
   const { token } = useAuth();

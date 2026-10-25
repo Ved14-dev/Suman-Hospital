@@ -10,8 +10,8 @@ import {
   AlertCircle,
   PhoneCall,
 } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
-import { submitEnquiry } from '../api/api';
+import SectionHeading from '../components/SectionHeading.jsx';
+import { submitEnquiry } from '../api/api.js';
 
 const Contact = ({ onShowToast }) => {
   const [formData, setFormData] = useState({

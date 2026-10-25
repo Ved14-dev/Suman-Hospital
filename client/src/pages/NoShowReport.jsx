@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart3, AlertOctagon, XCircle, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import DashboardLayout from '../components/DashboardLayout';
-import StatCard from '../components/StatCard';
-import StatusBadge from '../components/StatusBadge';
-import { fetchNoShowCancellationReport } from '../api/api';
-import { useAuth } from '../context/AuthContext';
+import DashboardLayout from '../components/DashboardLayout.jsx';
+import StatCard from '../components/StatCard.jsx';
+import StatusBadge from '../components/StatusBadge.jsx';
+import { fetchNoShowCancellationReport } from '../api/api.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const NoShowReport = () => {
   const { token } = useAuth();
