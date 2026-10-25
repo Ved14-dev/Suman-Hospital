@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #f8fafc;
+    color: #0f172a;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom glassmorphism & gradients */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.medical-gradient {
+  background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.15) 0%, transparent 40%),
+              radial-gradient(circle at 10% 80%, rgba(2, 132, 199, 0.12) 0%, transparent 50%),
+              linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+}
+
+.card-hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(2, 132, 199, 0.1), 0 8px 10px -6px rgba(2, 132, 199, 0.05);
+}
+
+/* Skeleton Loading Pulse */
+@keyframes pulse-light {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-skeleton {
+  animation: pulse-light 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Print CSS */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  aside, header, nav, button, .print\:hidden {
+    display: none !important;
+  }
+
+  .print-slip, .printable-content {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+}
+

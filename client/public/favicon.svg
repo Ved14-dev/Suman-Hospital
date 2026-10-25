@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Rounded Background Tile -->
+  <rect width="64" height="64" rx="16" fill="#0f172a" />
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0f766e" />
+  
+  <!-- Subtle Inner Border -->
+  <rect x="4" y="4" width="56" height="56" rx="12" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.4" fill="none" />
+
+  <!-- Medical Cross Glow -->
+  <path d="M26 14h12v12h12v12H38v12H26V38H14V26h12V14z" fill="#0d9488" opacity="0.3" />
+
+  <!-- Heart Pulse Wave in Crisp White -->
+  <path d="M12 32h10l3.5-7 6 15 5-11 3.5 5 2-2h12" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Medical Cross Accent in Corner -->
+  <path d="M48 16h6M51 13v6" stroke="#5eead4" stroke-width="2.5" stroke-linecap="round" />
+</svg>

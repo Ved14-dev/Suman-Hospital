@@ -1,0 +1,21 @@
+import express from 'express';
+import { requireAuth, requireRole } from '../middleware/auth.js';
+import { stats, listPatients, listDoctors, listAppointments, listEnquiries, updateEnquiry, updateAppointment, createDoctor, updateDoctor, deactivateDoctor, listDepartments, createDepartment, updateDepartment, deleteDepartment } from '../controllers/adminController.js';
+
+const router = express.Router();
+router.use(requireAuth, requireRole('admin'));
+router.get('/stats', stats);
+router.get('/patients', listPatients);
+router.get('/doctors', listDoctors);
+router.post('/doctors', createDoctor);
+router.put('/doctors/:id', updateDoctor);
+router.delete('/doctors/:id', deactivateDoctor);
+router.get('/appointments', listAppointments);
+router.patch('/appointments/:id', updateAppointment);
+router.get('/enquiries', listEnquiries);
+router.patch('/enquiries/:id', updateEnquiry);
+router.get('/departments', listDepartments);
+router.post('/departments', createDepartment);
+router.put('/departments/:id', updateDepartment);
+router.delete('/departments/:id', deleteDepartment);
+export default router;

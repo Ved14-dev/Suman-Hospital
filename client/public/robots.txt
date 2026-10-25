@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /patient-dashboard
+Disallow: /doctor-dashboard
+Disallow: /admin-dashboard
+
+Sitemap: https://suman-hospital.org/sitemap.xml
